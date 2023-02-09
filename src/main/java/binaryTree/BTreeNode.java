@@ -25,6 +25,10 @@ public class BTreeNode {
         this.left = new BTreeNode(value);
     }
 
+    public void removeLeft() { this.left = null; }
+
+    public void removeRight() { this.right = null; }
+
     public boolean hasLeft() {
         if (this.left == null) return true;
         else return false;

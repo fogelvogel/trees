@@ -4,6 +4,6 @@ import binaryTree.BTree;
 import binaryTree.BTreeNode;
 
 public interface IPlacingNodeBehaviour {
-    void place(BTreeNode parentNode, int value);
-    BTreeNode findNodeToPlace(BTree tree, int value);
+    void addNode(BTreeNode parentNode, int value);
+    void place(BTree tree, int value);
 }

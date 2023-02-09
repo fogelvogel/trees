@@ -5,7 +5,7 @@ import binaryTree.BTreeNode;
 import interfaces.IPlacingNodeBehaviour;
 
 class PlacingNodeLeftToRightBehaviour implements IPlacingNodeBehaviour {
-    public void place(BTreeNode parentNode, int value) {
+    public void addNode(BTreeNode parentNode, int value) {
         if (parentNode.hasLeft()) {
             parentNode.addRightChild(value);
         }
@@ -13,16 +13,14 @@ class PlacingNodeLeftToRightBehaviour implements IPlacingNodeBehaviour {
     }
 
 
-    public BTreeNode findNodeToPlace(BTree tree, int value) {
-
-        //TODO place logic
-        return tree.getRoot();
+    public void place(BTree tree, int value) {
+        addNode(findNodeRecursion(tree.getRoot()), value);
     }
 
-    private BTreeNode findNodeRecurrsion(BTreeNode parentNode) {
+    private BTreeNode findNodeRecursion(BTreeNode parentNode) {
         if (parentNode.hasLeft()) {
             if (parentNode.hasRight()) {
-                return findNodeRecurrsion(parentNode.getLeft());
+                return findNodeRecursion(parentNode.getLeft());
             }
         }
         return parentNode;
