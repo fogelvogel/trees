@@ -1,7 +1,8 @@
 package interfaces;
 
-import binaryTree.BTreeNode;
+import Tree.TreeNode;
 
-public interface IRemovingNodeBehaviour {
-    void removeNode(BTreeNode nodeToRemove, BTreeNode parentNode);
+
+public interface IRemovingNodeBehaviour<T extends TreeNode> {
+    void removeByNode(T nodeToRemove, T root);
 }

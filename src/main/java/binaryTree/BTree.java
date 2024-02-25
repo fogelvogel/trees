@@ -1,10 +1,12 @@
 package binaryTree;
 
+import Tree.Tree;
+import Tree.TreeNode;
 import interfaces.IPlacingNodeBehaviour;
 import interfaces.IRemovingNodeBehaviour;
 import interfaces.ISearchBehaviour;
 
-public class BTree {
+public class BTree implements Tree {
     BTreeNode root;
     // strategy pattern
     IPlacingNodeBehaviour placingNodeBehaviour;
@@ -23,18 +25,15 @@ public class BTree {
     }
 
     public void AddNode(int value) {
-        //BTreeNode parentNode = placingNodeBehaviour.findNodeToPlace(this, value);
         placingNodeBehaviour.addNode(this.getRoot(), value);
     }
-
-    public void RemoveNode(BTreeNode nodeToRemove, BTreeNode parentNode) {
-        removingNodeBehaviour.removeNode(nodeToRemove, parentNode);
+    public void RemoveNode(TreeNode nodeToRemove, TreeNode parentNode) {
+        removingNodeBehaviour.removeByNode(nodeToRemove, parentNode);
     }
 
-    public void SearchByValue(int value) {
-        //todo simple search
-        BTreeNode rootNode = this.getRoot();
-        searchBehaviour.SearchByValue(value, rootNode);
+    public BTreeNode SearchByValue(int value) {
+
+        return (BTreeNode) searchBehaviour.SearchByValue(value, this.getRoot());
     }
 
     public BTreeNode getRoot() {

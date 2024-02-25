@@ -4,7 +4,7 @@ import binaryTree.BTree;
 import binaryTree.BTreeNode;
 import interfaces.ISearchBehaviour;
 
-public class PreorderSearchBehaviour implements ISearchBehaviour {
+public class PreorderSearchBehaviour implements ISearchBehaviour<BTreeNode> {
     @Override
     public BTreeNode SearchByValue(int value, BTreeNode currentRoot) {
         if (currentRoot.getValue() == value) return currentRoot;

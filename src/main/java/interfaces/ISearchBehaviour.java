@@ -1,8 +1,7 @@
 package interfaces;
 
-import binaryTree.BTree;
-import binaryTree.BTreeNode;
+import Tree.TreeNode;
 
-public interface ISearchBehaviour {
-    public BTreeNode SearchByValue(int value, BTreeNode tree);
+public interface ISearchBehaviour<T extends TreeNode> {
+    T SearchByValue(int value, T root);
 }

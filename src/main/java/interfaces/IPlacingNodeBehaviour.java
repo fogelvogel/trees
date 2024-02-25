@@ -1,8 +1,7 @@
 package interfaces;
 
-import binaryTree.BTree;
-import binaryTree.BTreeNode;
+import Tree.TreeNode;
 
-public interface IPlacingNodeBehaviour {
-    BTreeNode addNode(BTreeNode root, int value);
+public interface IPlacingNodeBehaviour<T extends TreeNode> {
+    T addNode(T root, int value);
 }

@@ -1,6 +1,8 @@
 package binaryTree;
 
-public class BTreeNode {
+import Tree.TreeNode;
+
+public class BTreeNode implements TreeNode {
     int value;
     BTreeNode left;
     BTreeNode right;

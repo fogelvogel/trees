@@ -5,7 +5,7 @@ import binaryTree.BTreeNode;
 import interfaces.IPlacingNodeBehaviour;
 
 // this behaviour is used by binary search tree
-public class PlacingNodeByValueBehaviour implements IPlacingNodeBehaviour {
+public class PlacingNodeByValueBehaviour implements IPlacingNodeBehaviour<BTreeNode> {
 
     @Override
     public BTreeNode addNode(BTreeNode parentNode, int value) {
