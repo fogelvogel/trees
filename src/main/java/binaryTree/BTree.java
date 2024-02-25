@@ -24,7 +24,7 @@ public class BTree {
 
     public void AddNode(int value) {
         //BTreeNode parentNode = placingNodeBehaviour.findNodeToPlace(this, value);
-        placingNodeBehaviour.place(this, value);
+        placingNodeBehaviour.addNode(this.getRoot(), value);
     }
 
     public void RemoveNode(BTreeNode nodeToRemove, BTreeNode parentNode) {
@@ -32,6 +32,7 @@ public class BTree {
     }
 
     public void SearchByValue(int value) {
+        //todo simple search
         BTreeNode rootNode = this.getRoot();
         searchBehaviour.SearchByValue(value, rootNode);
     }

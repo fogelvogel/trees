@@ -8,36 +8,51 @@ import interfaces.IPlacingNodeBehaviour;
 public class PlacingNodeByValueBehaviour implements IPlacingNodeBehaviour {
 
     @Override
-    public void addNode(BTreeNode parentNode, int value) {
+    public BTreeNode addNode(BTreeNode parentNode, int value) {
         // no node will be placed
-        if (parentNode == null) return;
-        if (parentNode.getValue() < value) {
-            parentNode.addRightChild(value);
-        }
-        else parentNode.addLeftChild(value);
-    }
+        if (parentNode == null) return null;
 
-    @Override
-    public void place(BTree tree, int value) {
-        addNode(findNodeRecursion(tree.getRoot(), value), value);
-    }
-
-    private BTreeNode findNodeRecursion(BTreeNode parentNode, int value) {
-       // TODO: add exception then parentNode.getValue() < value
+    //     TODO: add exception when parentNode.getValue() < value
         if (parentNode.getValue() < value) {
             if (parentNode.hasRight()) {
-                return findNodeRecursion(parentNode.getRight(), value);
+                return addNode(parentNode.getRight(), value);
             } else {
-                return parentNode;
+                parentNode.addRightChild(value);
+                return null;
             }
         }
         if (parentNode.getValue() > value) {
             if (parentNode.hasLeft()) {
-                return findNodeRecursion(parentNode.getLeft(), value);
+                return addNode(parentNode.getLeft(), value);
             } else {
-                return parentNode;
+                parentNode.addLeftChild(value);
+                return null;
             }
         }
         return null;
     }
+
+//    @Override
+//    public void place(BTree tree, int value) {
+//        addNode(findNodeRecursion(tree.getRoot(), value), value);
+//    }
+//
+//    private BTreeNode findNodeRecursion(BTreeNode parentNode, int value) {
+//       // TODO: add exception when parentNode.getValue() < value
+//        if (parentNode.getValue() < value) {
+//            if (parentNode.hasRight()) {
+//                return findNodeRecursion(parentNode.getRight(), value);
+//            } else {
+//                return parentNode;
+//            }
+//        }
+//        if (parentNode.getValue() > value) {
+//            if (parentNode.hasLeft()) {
+//                return findNodeRecursion(parentNode.getLeft(), value);
+//            } else {
+//                return parentNode;
+//            }
+//        }
+//        return null;
+//    }
 }
