@@ -5,6 +5,8 @@ public interface Tree {
 
     void RemoveNode(TreeNode nodeToRemove,TreeNode parentNode);
 
+    void RemoveByValue(int value);
+
     TreeNode SearchByValue(int value);
-    TreeNode getRoot();
+    TreeNode GetRoot();
 }

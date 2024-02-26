@@ -25,22 +25,26 @@ public class BTree implements Tree {
     }
 
     public void AddNode(int value) {
-        placingNodeBehaviour.addNode(this.getRoot(), value);
+        placingNodeBehaviour.addNode(this.GetRoot(), value);
     }
     public void RemoveNode(TreeNode nodeToRemove, TreeNode parentNode) {
         removingNodeBehaviour.removeByNode(nodeToRemove, parentNode);
     }
 
-    public BTreeNode SearchByValue(int value) {
-
-        return (BTreeNode) searchBehaviour.SearchByValue(value, this.getRoot());
+    public void RemoveByValue(int value) {
+        RemoveNode(SearchByValue(value), this.GetRoot());
     }
 
-    public BTreeNode getRoot() {
+    public BTreeNode SearchByValue(int value) {
+
+        return (BTreeNode) searchBehaviour.SearchByValue(value, this.GetRoot());
+    }
+
+    public BTreeNode GetRoot() {
         return root;
     }
 
-    public void setRoot(BTreeNode root) {
+    public void SetRoot(BTreeNode root) {
         this.root = root;
     }
 }
