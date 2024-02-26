@@ -2,7 +2,7 @@ package main;
 
 import BTree.BTree;
 import BTreeBehaviours.PlacingNodeByValueBehaviour;
-import BTreeBehaviours.PreorderSearchBehaviour;
+import BTreeBehaviours.PreorderTraverseBehaviour;
 import BTreeBehaviours.RemoveNodeWithChildrenBehaviour;
 
 public class Main {
@@ -12,8 +12,8 @@ public class Main {
 
         PlacingNodeByValueBehaviour placingNodeByValueBehaviour
                 = new PlacingNodeByValueBehaviour();
-        PreorderSearchBehaviour preorderSearchBehaviour
-                = new PreorderSearchBehaviour();
+        PreorderTraverseBehaviour preorderTraverseBehaviour
+                = new PreorderTraverseBehaviour();
         RemoveNodeWithChildrenBehaviour removeNodeWithChildrenBehaviour
                 = new RemoveNodeWithChildrenBehaviour();
 
@@ -21,11 +21,12 @@ public class Main {
                 rootValue,
                 placingNodeByValueBehaviour,
                 removeNodeWithChildrenBehaviour,
-                preorderSearchBehaviour
+                preorderTraverseBehaviour
         );
         testTree.AddNode(7);
         testTree.AddNode(10);
         testTree.AddNode(2);
+        testTree.Print();
     }
 }
 

@@ -4,24 +4,26 @@ import Tree.Tree;
 import Tree.TreeNode;
 import interfaces.IPlacingNodeBehaviour;
 import interfaces.IRemovingNodeBehaviour;
-import interfaces.ISearchBehaviour;
+import interfaces.ITraverseBehaviour;
+
+import java.util.ArrayList;
 
 public class BTree implements Tree {
     BTreeNode root;
     // strategy pattern
     IPlacingNodeBehaviour placingNodeBehaviour;
     IRemovingNodeBehaviour removingNodeBehaviour;
-    ISearchBehaviour searchBehaviour;
+    ITraverseBehaviour traverseBehaviour;
 
     public BTree(int nodeValue,
           IPlacingNodeBehaviour placingNodeBehaviour,
           IRemovingNodeBehaviour removingNodeBehaviour,
-          ISearchBehaviour searchBehaviour
+          ITraverseBehaviour traverseBehaviour
     ) {
         root = new BTreeNode(nodeValue);
         this.placingNodeBehaviour = placingNodeBehaviour;
         this.removingNodeBehaviour = removingNodeBehaviour;
-        this.searchBehaviour = searchBehaviour;
+        this.traverseBehaviour = traverseBehaviour;
     }
 
     public void AddNode(int value) {
@@ -35,9 +37,15 @@ public class BTree implements Tree {
         RemoveNode(SearchByValue(value), this.GetRoot());
     }
 
+    public void Print() {
+        ArrayList<BTreeNode> listOfNodes = new ArrayList<BTreeNode>();
+        listOfNodes = traverseBehaviour.GiveNodeList(this.GetRoot());
+        System.out.println(listOfNodes.toString());
+    }
+
     public BTreeNode SearchByValue(int value) {
 
-        return (BTreeNode) searchBehaviour.SearchByValue(value, this.GetRoot());
+        return (BTreeNode) traverseBehaviour.SearchByValue(value, this.GetRoot());
     }
 
     public BTreeNode GetRoot() {

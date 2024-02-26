@@ -7,6 +7,8 @@ public interface Tree {
 
     void RemoveByValue(int value);
 
+    void Print();
+
     TreeNode SearchByValue(int value);
     TreeNode GetRoot();
 }
