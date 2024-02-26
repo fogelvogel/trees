@@ -1,7 +1,6 @@
-package behaviours;
+package BTreeBehaviours;
 
-import binaryTree.BTree;
-import binaryTree.BTreeNode;
+import BTree.BTreeNode;
 import interfaces.IPlacingNodeBehaviour;
 
 // this behaviour is used by binary search tree

@@ -1,4 +1,4 @@
-package binaryTree;
+package BTree;
 
 import Tree.Tree;
 import Tree.TreeNode;
@@ -13,7 +13,7 @@ public class BTree implements Tree {
     IRemovingNodeBehaviour removingNodeBehaviour;
     ISearchBehaviour searchBehaviour;
 
-    BTree(int nodeValue,
+    public BTree(int nodeValue,
           IPlacingNodeBehaviour placingNodeBehaviour,
           IRemovingNodeBehaviour removingNodeBehaviour,
           ISearchBehaviour searchBehaviour

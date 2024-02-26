@@ -1,6 +1,6 @@
-package behaviours;
+package BTreeBehaviours;
 
-import binaryTree.BTreeNode;
+import BTree.BTreeNode;
 import interfaces.IRemovingNodeBehaviour;
 
 public class RemoveNodeWithChildrenBehaviour implements IRemovingNodeBehaviour<BTreeNode> {
