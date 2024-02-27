@@ -21,11 +21,13 @@ public class PreorderTraverseBehaviour implements ITraverseBehaviour<BTreeNode> 
     }
 
     private ArrayList<BTreeNode> TraverseRecursion(BTreeNode currentRoot, ArrayList<BTreeNode> listOfNodes) {
+        listOfNodes.add(currentRoot);
         if (currentRoot.hasLeft()) {
-            return TraverseRecursion(currentRoot.getLeft(), listOfNodes);
+            TraverseRecursion(currentRoot.getLeft(), listOfNodes);
         }
         if (currentRoot.hasRight()) {
-            return TraverseRecursion(currentRoot.getRight(), listOfNodes);
-        } else return listOfNodes;
+            TraverseRecursion(currentRoot.getRight(), listOfNodes);
+        }
+        return listOfNodes;
     }
 }

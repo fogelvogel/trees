@@ -32,13 +32,13 @@ public class BTreeNode implements TreeNode {
     public void removeRight() { this.right = null; }
 
     public boolean hasLeft() {
-        if (this.left == null) return true;
-        else return false;
+        if (this.left == null) return false;
+        else return true;
     }
 
     public boolean hasRight() {
-        if (this.right == null) return true;
-        else return false;
+        if (this.right == null) return false;
+        else return true;
     }
 
     public BTreeNode getLeft() {
